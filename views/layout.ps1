@@ -24,7 +24,7 @@ a.nav-link:visited {
 }
 
 a.nav-link:hover {
-    color:rgb(230, 90, 20) !important;
+    color: #ff9800 !important;
     text-decoration: underline;
 }
 

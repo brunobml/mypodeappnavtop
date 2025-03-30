@@ -1,9 +1,13 @@
 param()
 
-New-HTML {
-    New-HTMLSection -HeaderText 'Report 2: Chart Sample' {
-        New-HTMLChart -Title 'Performance Chart' -Type Column -Labels 'Alice', 'Bob', 'Charlie' -DataSet {
-            New-ChartData -Name 'Scores' -Data 88, 92, 79
+$layoutPath = Join-Path $PSScriptRoot 'layout.ps1'
+
+& $layoutPath -ContentBlock {
+    New-HTMLSection -HeaderText 'Chart' {
+        New-HTMLChart -Title 'OneDrive Utilization' -TitleAlignment center {
+            New-ChartLegend -LegendPosition bottom
+            New-ChartDonut -Name 'OneDrive Utilization' -Value 15 -Color '#6dbf88'
+            New-ChartDonut -Name 'Not Utilized' -Value 20 -Color Yellow
         }
     }
 }

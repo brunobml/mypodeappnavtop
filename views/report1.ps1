@@ -1,11 +1,13 @@
 param()
 
-New-HTML {
-    New-HTMLSection -HeaderText 'Report 1: Table Sample' {
+$layoutPath = Join-Path $PSScriptRoot 'layout.ps1'
+
+& $layoutPath -ContentBlock {
+    New-HTMLSection -HeaderText 'Report 1: Sample Table' {
         New-HTMLTable -DataTable @(
-            @{ Name = 'Alice'; Score = 88 }
-            @{ Name = 'Bob'; Score = 92 }
-            @{ Name = 'Charlie'; Score = 79 }
+            @{ Name = 'Alice'; Age = 30 }
+            @{ Name = 'Bob'; Age = 35 }
+            @{ Name = 'Charlie'; Age = 42 }
         )
     }
 }

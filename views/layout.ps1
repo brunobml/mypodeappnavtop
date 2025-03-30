@@ -4,10 +4,10 @@ param (
 
 New-HTML -TitleText 'My Dashboard' {
     # Header
-    New-HTMLSection -CanCollapse {
+    New-HTMLSection -Direction 'column' -HeaderText '☰ Cloud Report Menu' -CanCollapse {
         New-HTMLTag -Tag 'div' -Attributes @{ style = 'background-color:#2196f3; color:white; padding:10px;' } -Content {
             New-HTMLTag -Tag 'h2' -Content { '☁️ Cenovus Cloud Dashboard' }
-            New-HTMLTag -Tag 'div' -Attributes @{ style = 'text-align:right;' } -Content {
+            New-HTMLTag -Tag 'div' -Attributes @{ style = 'text-align:left;' } -Content {
                 New-HTMLTag -Tag 'a' -Attributes @{ href = '/' ; style = 'margin-right:15px; color:white;' } -Content { '🏠 Home' }
                 New-HTMLTag -Tag 'a' -Attributes @{ href = '/report1'; style = 'margin-right:15px; color:white;' } -Content { '📋 Report 1' }
                 New-HTMLTag -Tag 'a' -Attributes @{ href = '/report2'; style = 'color:white;' } -Content { '📊 Report 2' }

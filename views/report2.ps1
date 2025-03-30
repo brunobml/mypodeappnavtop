@@ -3,7 +3,7 @@ param()
 $layoutPath = Join-Path $PSScriptRoot 'layout.ps1'
 
 & $layoutPath -ContentBlock {
-    New-HTMLSection -HeaderText 'Chart' {
+    New-HTMLSection -CanCollapse -HeaderText 'Chart' {
         New-HTMLChart -Title 'OneDrive Utilization' -TitleAlignment center {
             New-ChartLegend -LegendPosition bottom
             New-ChartDonut -Name 'OneDrive Utilization' -Value 15 -Color '#6dbf88'

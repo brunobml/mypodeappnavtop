@@ -3,7 +3,7 @@ param()
 $layoutPath = Join-Path $PSScriptRoot 'layout.ps1'
 
 & $layoutPath -ContentBlock {
-    New-HTMLSection -HeaderText 'Welcome to the Cloud Dashboard Portal' {
+    New-HTMLSection -CanCollapse -HeaderText 'Welcome to the Cloud Dashboard Portal' {
         New-HTMLText -Text 'Choose a report below:'
 
         # FIXED: right-aligned links using a styled div inside a section

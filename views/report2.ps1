@@ -2,7 +2,7 @@ param()
 
 $layoutPath = Join-Path $PSScriptRoot 'layout.ps1'
 
-& $layoutPath -ContentBlock {
+& $layoutPath -CurrentPage 'Report2' -ContentBlock {
 
     # Auto-refresh every 5 minutes
     New-HTMLTag -Tag 'meta' -Attributes @{ 'http-equiv' = 'refresh'; content = '10' }

@@ -2,7 +2,7 @@ param()
 
 $layoutPath = Join-Path $PSScriptRoot 'layout.ps1'
 
-& $layoutPath -ContentBlock {
+& $layoutPath -CurrentPage 'Report3' -ContentBlock {
 
     New-HTMLSection -HeaderText 'Sparklines - Defaults' {
         New-HTMLPanel {

@@ -2,7 +2,7 @@ param()
 
 $layoutPath = Join-Path $PSScriptRoot 'layout.ps1'
 
-& $layoutPath -ContentBlock {
+& $layoutPath -CurrentPage 'Home' -ContentBlock {
     New-HTMLSection -CanCollapse -HeaderText 'Welcome to the Cloud Dashboard Portal' {
         New-HTMLText -Text 'Choose a report below:'
 

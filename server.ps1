@@ -2,10 +2,27 @@ Import-Module Pode
 Import-Module PSWriteHTML
 Import-Module PSParseHTML
 
+Import-PodeModule -Path "$PSScriptRoot/modules/utilities.psm1"
+
 Start-PodeServer {
     Add-PodeEndpoint -Address * -Port 8080 -Protocol Http
 
-    New-PodeLoggingMethod -Terminal | Enable-PodeErrorLogging
+    New-PodeLoggingMethod -Terminal | Enable-PodeErrorLogging 
+    
+    # Load external script containing your functions
+    Use-PodeScript -Path "$PSScriptRoot/scripts/utils.ps1"
+
+    Add-PodeRoute -Method Get -Path '/hello' -ScriptBlock {
+        $msg = Get-HelloMessage
+        Write-PodeTextResponse -Value $msg
+    }
+
+    Add-PodeRoute -Method Get -Path '/status' -ScriptBlock {
+        $status = Get-ServerStatus
+        Write-PodeTextResponse -Value $status
+    }
+    
+    
 
     . "$PSScriptRoot\routes\home.ps1"
     . "$PSScriptRoot\routes\report1.ps1"

@@ -1,0 +1,18 @@
+/* public/css/styles.css (NEW) */
+/* Navigation */
+a.nav-link,
+a.nav-link:visited {
+    color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+a.nav-link:hover {
+    color: #ff9800 !important;
+    text-decoration: underline;
+}
+
+a.nav-link.active {
+    color: cyan !important;
+}

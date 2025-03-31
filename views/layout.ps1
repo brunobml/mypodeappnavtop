@@ -12,26 +12,19 @@ $Pages = @(
 
 New-HTML -Online -Minify -TitleText 'My Dashboard' {
 
-    # Inject working global CSS
-    New-HTMLTag -Tag 'style' -Attributes @{ type = 'text/css' } -Content {
-@"
-a.nav-link,
-a.nav-link:visited {
-    color: white !important;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-}
-
-a.nav-link:hover {
-    color: #ff9800 !important;
-    text-decoration: underline;
-}
-
-a.nav-link.active {
-    color: cyan !important;
-}
-"@
+    <# Inject working global CSS
+        Serving up web pages via Pode is simple, you can either write your pages in HTML, Pode, another template engine; 
+        then place those files within the /views directory. 
+        You can also use CSS, JavaScript, Images, etc. and place those files within the /public directory.
+        
+        If your web page references any CSS, JavaScript, etc. files, then Pode will automatically find them within the /public directory - or 
+        any relative static routes you may have defined. 
+        For example, if you reference <link rel="stylesheet" type="text/css" href="/styles/simple.css"> in your HTML file, then Pode will look for /public/styles/simple.css.
+    #>
+    New-HTMLTag -Tag 'link' -Attributes @{
+        rel  = 'stylesheet'
+        type = 'text/css'
+        href = '/css/styles.css'  # Path matches Pode static route
     }
 
     # Header / Navigation
